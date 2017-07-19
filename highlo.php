@@ -25,16 +25,23 @@
 
 // Display number of guesses it took after outputting 'Good Guess!'
 
+// !isNumberic($userGuess)
 
 
 
 $number =  mt_rand(1, 100);
+	echo $number .  PHP_EOL;
 $guesses = 0;
 
 do {
 	$guesses++;
 	fwrite(STDOUT,"Guess?");
 	$userGuess = fgets(STDIN);
+
+	// if (! is_numeric($userGuess)) {
+	// 	echo "Please enter numbers only!" . PHP_EOL;
+	// 	continue;
+	// }
 	
 	if ($userGuess < $number) {
 		echo "Higher!" . PHP_EOL;
@@ -42,9 +49,9 @@ do {
 		echo "Lower" . PHP_EOL;
 	} else {
 		echo "You Win!!" . PHP_EOL;
-		echo "It took you " . $guesses . PHP_EOL;
-		
+		echo "It took you " . $guesses . " guesses." . PHP_EOL;	
 	}
+
 } while ($userGuess != $number);
 
 
