@@ -27,10 +27,18 @@
 
 // !isNumberic($userGuess)
 
+//Open your high-low game and add this feature. Commit and push to GitHub.
+
+// TODO
+// If there are 2 arguments passed, and both are numbers,
+//  use the numbers to set the min and max on the random number generator.
 
 
-$number =  mt_rand(1, 100);
-	echo $number .  PHP_EOL;
+$minNumber = $argv[1];
+$maxNumber = $argv[2];
+
+$number =  mt_rand($minNumber, $maxNumber);
+	echo $number .  PHP_EOL;	
 $guesses = 0;
 
 do {
@@ -43,6 +51,7 @@ do {
 	// 	continue;
 	// }
 	
+	
 	if ($userGuess < $number) {
 		echo "Higher!" . PHP_EOL;
 	} else if($userGuess > $number) {
@@ -52,7 +61,7 @@ do {
 		echo "It took you " . $guesses . " guesses." . PHP_EOL;	
 	}
 
-} while ($userGuess != $number);
+	} while ($userGuess != $number);
 
 
 	
